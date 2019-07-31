@@ -44,7 +44,6 @@ class ScoreAnalyzer5 extends ScoreAnalyzer
     StudentList = new ArrayList<>();
     output = new ArrayList<>();
     maxScore = 0;
-    outputFileName = "heatmap5.png";
   }
   
   public void Run(Arguments arguments)
@@ -52,6 +51,11 @@ class ScoreAnalyzer5 extends ScoreAnalyzer
           IOException
   {
     Initialize();
+    if(arguments.InputFileName.equals("--help"))
+    {
+      return;
+    }
+    outputFileName = arguments.Dest;
     File file = new File(arguments.InputFileName);
     BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file), "Shift-JIS"));
     String line;

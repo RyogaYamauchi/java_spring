@@ -52,6 +52,10 @@ class ScoreAnalyzer6 extends ScoreAnalyzer
           IOException
   {
     Initialize();
+    if(arguments.InputFileName.equals("--help"))
+    {
+      return;
+    }
     File file = new File(arguments.InputFileName);
     BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file), "Shift-JIS"));
     String line;
@@ -157,7 +161,7 @@ class ScoreAnalyzer6 extends ScoreAnalyzer
     writeCalc.Max();
     writeCalc.Min();
     writeCalc.Average();
-    File outputFile = new File("ScoreAnalyzerResult5.csv");
+    File outputFile = new File("ScoreAnalyzerResult6.csv");
     PrintResultWriter.WriteToFile(outputFile, output);
     PrintResultWriter.WriteToConsole(output);
   }

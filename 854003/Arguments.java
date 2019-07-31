@@ -18,11 +18,11 @@ public class Arguments
   //コンストラクタ　argsの中身をみてデフォルトを指定
   public Arguments(String[] args)
   {
+    //Default
     Dest = "heatmap.png";
     SortKey = "";
     Help = false;
     HeatMap = "score";
-    InputFileName = args[args.length - 1];
     parse(args);
   }
   
@@ -35,13 +35,17 @@ public class Arguments
       {
         i = parseOption(args, i);
       }
+      else if(args[i].equals("writing.csv") || args[i].equals("reading.csv"))
+      {
+        InputFileName = args[i];
+      }
     }
   }
   
   //パースされたオプションに対応した処理を行う
   private Integer parseOption(String[] args, Integer i)
   {
-    if (Objects.equals(args[i], "--Dest"))
+    if (Objects.equals(args[i], "--dest"))
     {
       i++;
       String fileName = args[i];
@@ -75,4 +79,5 @@ public class Arguments
     }
     return fileName + wontExtention;
   }
+
 }

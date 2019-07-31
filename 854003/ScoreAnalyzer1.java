@@ -13,7 +13,7 @@
 
 import java.util.*;
 import java.io.*;
-class ScoreAnalyzer1 extends IScoreAnalyzer
+class ScoreAnalyzer1 extends ScoreAnalyzer
 {
 
   private HashMap<String,Integer> map;
